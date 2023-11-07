@@ -1,0 +1,120 @@
+
+.chord-name{
+    border: solid green 1px;
+}
+
+.pointer {
+    cursor: pointer;
+  }
+  
+#grids-container{
+    border: solid red;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.maSuperTab{
+   border: solid blue;
+    width: 15rem;
+    padding: 1.5rem;
+}
+
+.chord-name{
+    width: 230px;
+    padding-left: 1.1rem;
+}
+
+#chord-name-input{
+    width: 195px;
+}
+.fretboard{
+    border: solid black 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabContainer{
+    display: flex;
+}
+
+.name{
+margin-top: 5px;
+}
+
+.stringName{
+    padding: 9px 7px 2px 0;
+    font-size: 0.8rem;
+    line-height: 0.6rem;
+
+}
+
+
+.cadre{
+    display: flex;
+    height: 20px;
+}
+
+.string{
+    display: flex;
+    width: 210px;
+}
+
+.string::before{
+    content: "";
+    height: 20px;
+}
+
+.note-fret {
+    display: flex;
+    width: 100%;
+    border: solid #666666;
+    border-width: 0 0 2px 0;
+    background-color: rgb(229, 229, 229);
+    
+    border-left: 4px solid;
+}
+
+.note-fret:before{
+    content: "";
+}
+
+.clicked:before {
+    content: "";
+    width: 10px;
+    top: 50%;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin: -9px auto 0;
+}
+
+.croixRond{
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0 0;
+}
+
+button{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+    display: flex;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+  }
+  
+
+.numeroCase{
+    border: solid yellow 1px;
+    display: flex;
+    flex-direction: column;
+    width: 2.6rem;
+    padding-left: 1.8rem;
+}
+
+
+  
