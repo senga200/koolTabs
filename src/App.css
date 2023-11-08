@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.add-tab {
+    background-color: rgb(115, 121, 164);
+    color: white;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,99 +1,17 @@
-
-.chord-name{
-    border: solid green 1px;
+body {
+    background-image: url("/public/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin: 60px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.pointer {
-    cursor: pointer;
-  }
-  
-#grids-container{
-    border: solid red;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-.maSuperTab{
-   border: solid blue;
-    width: 15rem;
-    padding: 1.5rem;
-}
-
-.chord-name{
-    width: 230px;
-    padding-left: 1.1rem;
-}
-
-#chord-name-input{
-    width: 195px;
-}
-.fretboard{
-    border: solid black 1px;
-    display: flex;
-    flex-direction: column;
-}
-
-.tabContainer{
-    display: flex;
-}
-
-.name{
-margin-top: 5px;
-}
-
-.stringName{
-    padding: 9px 7px 2px 0;
-    font-size: 0.8rem;
-    line-height: 0.6rem;
-
-}
-
-
-.cadre{
-    display: flex;
-    height: 20px;
-}
-
-.string{
-    display: flex;
-    width: 210px;
-}
-
-.string::before{
-    content: "";
-    height: 20px;
-}
-
-.note-fret {
-    display: flex;
-    width: 100%;
-    border: solid #666666;
-    border-width: 0 0 2px 0;
-    background-color: rgb(229, 229, 229);
-    
-    border-left: 4px solid;
-}
-
-.note-fret:before{
-    content: "";
-}
-
-.clicked:before {
-    content: "";
-    width: 10px;
-    top: 50%;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    margin: -9px auto 0;
-}
-
-.croixRond{
-    display: flex;
-    flex-direction: column;
-    margin: 12px 0 0;
-}
-
-button{
+button {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -103,18 +21,128 @@ button{
     cursor: pointer;
 }
 
-.pointer {
-    cursor: pointer;
-  }
-  
-
-.numeroCase{
-    border: solid yellow 1px;
-    display: flex;
-    flex-direction: column;
-    width: 2.6rem;
-    padding-left: 1.8rem;
+input, select {
+    font-size: 12px;
+    padding: 0 10px 0 10px;
+    height: 30px;
+    border: 1px solid #9a9a9a;
+    border-radius: 10px;
 }
 
+.pointer {
+    cursor: pointer;
+}
 
-  
+#tab-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.tab-card {
+    border-radius: 15px;
+    background-color: #ffffffbc;
+    width: 15rem;
+    padding: 1.5rem 2rem 2rem 1.5rem;
+}
+
+.tab-util {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tab-util_fontAwesome {
+    background-color: rgb(115, 121, 164);
+    color: white;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-card_chord-name {
+    margin: 20px 10px 20px 20px;
+}
+
+#chord-name-input {
+    width: 185px;
+}
+
+.numeroCase {
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 2.3rem;
+    padding-left: 1.9rem;
+    margin-bottom: 10px;
+
+}
+
+.fretboard-container {
+    display: flex;
+}
+
+.fretboard-container_name {
+    margin-top: 5px;
+}
+
+.stringName {
+    padding: 9px 7px 2px 0;
+    font-size: 0.8rem;
+    line-height: 0.6rem;
+}
+
+.fretboard {
+    border: solid rgba(110, 110, 110, 0.541) 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.fretboard_string {
+    display: flex;
+    height: 20px;
+}
+
+.note-fret {
+    display: flex;
+    width: 100%;
+    border: 1px solid #383839;
+    border-width: 0 0 2px 0;
+    background-color: rgb(115, 121, 164);
+    border-left: 4px solid;
+}
+
+.string {
+    display: flex;
+    width: 210px;
+
+}
+
+.string::before {
+    content: "";
+    height: 20px;
+}
+
+.note-fret:before {
+    content: "";
+}
+
+.clicked:before {
+    content: "";
+    width: 15px;
+    top: 50%;
+    height: 15px;
+    background-color: #ff4aeb;
+    border-radius: 50%;
+    margin: -9px auto 0;
+}
+
+.crossOrRound {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0 0;
+}
+
+.crossOrRound_button {
+    background-color: transparent;
+}
