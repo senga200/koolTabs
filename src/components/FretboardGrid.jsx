@@ -11,11 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { pressAction, unPressAction } from "../actions/PressAction";
-import {
-  createCardAction,
-  //deleteCardAction,
-  //duplicateCardAction,
-} from "../actions/CardAction";
 
 function FretBoard() {
   const dispatch = useDispatch();
@@ -38,10 +33,10 @@ function FretBoard() {
     });
   };
 
-  const createNewCard = () => {
-    console.log("createNewCard");
-    dispatch(createCardAction());
-  };
+  // const createNewCard = () => {
+  //   console.log("createNewCard");
+  //   dispatch(createCardAction());
+  // };
 
   return (
     <div id="tab-container">
@@ -65,7 +60,7 @@ function FretBoard() {
           <div className="new">
             <button className="tab-util_fontAwesome">
               {" "}
-              <FontAwesomeIcon icon={faCirclePlus} onClick={createNewCard} />
+              <FontAwesomeIcon icon={faCirclePlus} />
             </button>
           </div>
         </div>
