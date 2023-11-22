@@ -2,25 +2,27 @@ import React from "react";
 import "./FretBoard.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTrashCan,
-  faCopy,
-  faScissors,
-  faCirclePlus,
-} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faTrashCan,
+//   faCopy,
+//   faScissors,
+//   faCirclePlus,
+// } from "@fortawesome/free-solid-svg-icons";
 
 import { pressAction, unPressAction } from "../actions/PressAction";
 
 function FretBoard() {
   const dispatch = useDispatch();
-  const activeNotes = useSelector((state) => state.notes.activeNotes);
+  const [activeNotes, setActiveNotes] = useState([]);
   const [crossOrRoundState, setCrossOrRoundState] = useState(Array(6).fill(0));
 
   const handleNotePress = (note) => {
     if (activeNotes.includes(note)) {
+      setActiveNotes(activeNotes.filter((note) => note !== note));
       dispatch(unPressAction(note));
     } else {
+      setActiveNotes([...activeNotes, note]);
       dispatch(pressAction(note));
     }
   };
@@ -33,37 +35,32 @@ function FretBoard() {
     });
   };
 
-  // const createNewCard = () => {
-  //   console.log("createNewCard");
-  //   dispatch(createCardAction());
-  // };
-
   return (
-    <div id="tab-container">
+    <div className="tab-container">
       <div className="tab-card">
-        <div className="tab-util">
-          <div className="delete">
+        {/* <div className="tab-util">
+          <div className="item">
             <button className="tab-util_fontAwesome">
               <FontAwesomeIcon icon={faTrashCan} />
             </button>
           </div>
-          <div className="duplicate">
+          <div className="item">
             <button className="tab-util_fontAwesome">
               <FontAwesomeIcon icon={faCopy} />
             </button>
           </div>
-          <div className="cut">
+          <div className="item">
             <button className="tab-util_fontAwesome">
               <FontAwesomeIcon icon={faScissors} />
             </button>
           </div>
-          <div className="new">
+          <div className="item">
             <button className="tab-util_fontAwesome">
               {" "}
               <FontAwesomeIcon icon={faCirclePlus} />
             </button>
           </div>
-        </div>
+        </div> */}
         <div className="tab-card_chord-name">
           <input
             type="text"

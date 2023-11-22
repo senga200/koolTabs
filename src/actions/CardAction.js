@@ -13,20 +13,16 @@ const cardSlice = createSlice({
   reducers: {
     createCardAction: (state, action) => {
       // Action pour ajouter un composant FretboardGrid dans le state fretBoard
-      state.fretBoard.push({});
+      state.fretBoard.push({ key: Math.random() });
       console.log("state", state.fretBoard);
     },
 
     deleteCardAction: (state, action) => {
       // Action pour supprimer la carte
-    },
-
-    duplicateCardAction: (state, action) => {
-      // Action pour dupliquer la carte
+      state.fretBoard.splice(action.payload, 1);
     },
   },
 });
 
-export const { createCardAction, deleteCardAction, duplicateCardAction } =
-  cardSlice.actions;
+export const { createCardAction, deleteCardAction } = cardSlice.actions;
 export default cardSlice;

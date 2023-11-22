@@ -10,3 +10,63 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
+
+.home_header_title {
+    border: solid blue 1px;
+}
+
+.home_header_menu {
+    color: aliceblue;
+    border: solid green 5px;
+    display: flex;
+    justify-content: space-around;
+    height: 6rem;
+}
+
+/* .home_header_menu_item {
+    color: aliceblue;
+    border: solid red 6px;
+    height: 6rem;
+    width: 7rem;
+    text-align: center;
+    line-height: 1rem;
+    font-size: 1.5rem;
+} */
+
+.tab-util {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab-util_fontAwesome {
+    background-color: rgb(115, 121, 164);
+    color: white;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*button corde à vide / corde non jouée*/
+button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+    display: flex;
+    cursor: pointer;
+}
+
+
+.item {
+    margin: 1rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
