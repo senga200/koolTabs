@@ -11,16 +11,20 @@ body {
     box-sizing: border-box;
 }
 
-.home_header_title {
-    border: solid blue 1px;
+.home_header_title h1 {
+    font-family: 'Special Elite', cursive;
+    color: aliceblue;
+    font-size: 5rem;
+    text-align: center;
 }
 
 .home_header_menu {
     color: aliceblue;
-    border: solid green 5px;
+    /* border: solid green 5px; */
     display: flex;
     justify-content: space-around;
     height: 6rem;
+    padding: 1rem 1rem;
 }
 
 /* .home_header_menu_item {

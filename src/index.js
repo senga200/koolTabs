@@ -14,7 +14,7 @@ const store = configureStore({
   },
 });
 
-console.log(store.getState());
+console.log("index's store", store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

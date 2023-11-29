@@ -1,9 +1,9 @@
 import React from "react";
 import "./Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { createCardAction, deleteCardAction } from "./actions/CardAction";
+import { createCardAction, incrementCounterAction } from "./actions/CardAction";
 import FretBoardGrid from "./components/FretboardGrid";
 import { useSelector } from "react-redux";
 
@@ -13,12 +13,9 @@ function Home() {
 
   const createNewComponent = () => {
     console.log("createNewComponent");
-    dispatch(createCardAction(Math.random()));
-  };
-
-  const deleteComponent = () => {
-    console.log("deleteComponent");
-    dispatch(deleteCardAction());
+    // dispatch(createCardAction(Math.random()));
+    dispatch(incrementCounterAction());
+    dispatch(createCardAction());
   };
 
   return (
@@ -37,18 +34,12 @@ function Home() {
               <FontAwesomeIcon icon={faCirclePlus} />
             </button>
           </div>
-          <div className="tab-util">
-            <h2 className="item_title">Delete a Tab</h2>
-            <button className="tab-util_fontAwesome" onClick={deleteComponent}>
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button>
-          </div>
         </div>
       </div>
       <div className="home_container">
         <div className="tab-container">
           {fretBoardComponents.map((component, index) => (
-            <FretBoardGrid key={component.key} />
+            <FretBoardGrid key={component.key} id={component.key} />
           ))}
         </div>
       </div>

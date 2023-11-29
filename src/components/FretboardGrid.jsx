@@ -1,25 +1,21 @@
 import React from "react";
 import "./FretBoard.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faTrashCan,
-//   faCopy,
-//   faScissors,
-//   faCirclePlus,
-// } from "@fortawesome/free-solid-svg-icons";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
+import Delete from "./Delete";
 import { pressAction, unPressAction } from "../actions/PressAction";
 
-function FretBoard() {
+function FretBoard({ id }) {
   const dispatch = useDispatch();
   const [activeNotes, setActiveNotes] = useState([]);
   const [crossOrRoundState, setCrossOrRoundState] = useState(Array(6).fill(0));
 
   const handleNotePress = (note) => {
     if (activeNotes.includes(note)) {
-      setActiveNotes(activeNotes.filter((note) => note !== note));
+      setActiveNotes(activeNotes.filter((n) => n !== note));
+      dispatch(unPressAction(note));
       dispatch(unPressAction(note));
     } else {
       setActiveNotes([...activeNotes, note]);
@@ -38,39 +34,26 @@ function FretBoard() {
   return (
     <div className="tab-container">
       <div className="tab-card">
-        {/* <div className="tab-util">
-          <div className="item">
-            <button className="tab-util_fontAwesome">
-              <FontAwesomeIcon icon={faTrashCan} />
-            </button>
+        <div className="tab-util_card">
+          <div className="item_card">
+            <Delete id={id} />
           </div>
-          <div className="item">
+          <div className="item_card">
             <button className="tab-util_fontAwesome">
               <FontAwesomeIcon icon={faCopy} />
             </button>
           </div>
-          <div className="item">
-            <button className="tab-util_fontAwesome">
-              <FontAwesomeIcon icon={faScissors} />
-            </button>
-          </div>
-          <div className="item">
-            <button className="tab-util_fontAwesome">
-              {" "}
-              <FontAwesomeIcon icon={faCirclePlus} />
-            </button>
-          </div>
-        </div> */}
+        </div>
         <div className="tab-card_chord-name">
           <input
             type="text"
-            id="chord-name-input"
+            id={`chord-name-input-${id}`}
             placeholder="nom de l'accord"
           />
         </div>
         <div className="numeroCase">
-          <label htmlFor="case-select">Case :</label>
-          <select id="case-select">
+          <label htmlFor={`case-select-${id}`}>Case :</label>
+          <select id={`case-select-${id}`} className="case-select">
             {Array.from({ length: 22 }, (_, i) => (
               <option key={i} value={i}>
                 {i}
@@ -78,6 +61,7 @@ function FretBoard() {
             ))}
           </select>
         </div>
+
         <div className="fretboard-container">
           <div className="fretboard-container_name">
             <div className="stringName">E</div>
