@@ -5,12 +5,17 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import Delete from "./Delete";
-import { pressAction, unPressAction } from "../actions/PressAction";
+import {
+  pressAction,
+  unPressAction,
+  crossOrRoundAction,
+} from "../actions/PressAction";
 
 function FretBoard({ id }) {
   const dispatch = useDispatch();
   const [activeNotes, setActiveNotes] = useState([]);
-  const [crossOrRoundState, setCrossOrRoundState] = useState(Array(6).fill(0));
+  //débuter avec un tableau de 6 éléments à 0 (vide = 0, croix = 1, rond = 2)
+  const [crossOrRound, setCrossOrRound] = useState(Array(6).fill(0));
 
   const handleNotePress = (note) => {
     if (activeNotes.includes(note)) {
@@ -24,11 +29,28 @@ function FretBoard({ id }) {
   };
 
   const handleCrossOrRound = (index) => {
-    setCrossOrRoundState((prev) => {
-      const newState = [...prev];
-      newState[index] = (newState[index] + 1) % 3; // Basculer entre 0, 1 et 2
-      return newState;
-    });
+    if (crossOrRound[index] === 0) {
+      setCrossOrRound((prev) => {
+        const newState = [...prev];
+        newState[index] = 1;
+        return newState;
+      });
+      dispatch(crossOrRoundAction(index, 1));
+    } else if (crossOrRound[index] === 1) {
+      setCrossOrRound((prev) => {
+        const newState = [...prev];
+        newState[index] = 2;
+        return newState;
+      });
+      dispatch(crossOrRoundAction(index, 2));
+    } else {
+      setCrossOrRound((prev) => {
+        const newState = [...prev];
+        newState[index] = 0;
+        return newState;
+      });
+      dispatch(crossOrRoundAction(index, 0));
+    }
   };
 
   return (
@@ -103,14 +125,27 @@ function FretBoard({ id }) {
                 className="crossOrRound_button"
                 onClick={() => handleCrossOrRound(i)}
               >
-                {crossOrRoundState[i] === 0
-                  ? ""
-                  : crossOrRoundState[i] === 1
-                  ? "X"
-                  : "O"}
+                {crossOrRound[i] === 0 ? "" : crossOrRound[i] === 1 ? "X" : "O"}
               </button>
             ))}
           </div>
+          {/* <div className="crossOrRound">
+            {[...Array(6)].map((_, i) => (
+              <button
+                key={i}
+                className="crossOrRound_button"
+                onClick={() => handleCrossOrRound(i)}
+              >
+                {crossOrRound
+                  ? crossOrRound[i] === 0
+                    ? ""
+                    : crossOrRound[i] === 1
+                    ? "X"
+                    : "O"
+                  : ""}
+              </button>
+            ))}
+          </div> */}
         </div>
       </div>
     </div>

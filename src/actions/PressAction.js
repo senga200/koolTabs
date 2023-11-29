@@ -5,6 +5,8 @@ const notesSlice = createSlice({
   initialState: {
     //  activeNotes: null, // Note active initialement à null
     activeNotes: [], //tableau vide pour stocker plusieurs notes actives
+    //crossOrRound: Array(6).fill(0), //tableau de 6 cases initialisé à 0
+    crossOrRound: [0, 0, 0, 0, 0, 0], //tableau de 6 cases initialisé à 0
   },
 
   reducers: {
@@ -18,8 +20,15 @@ const notesSlice = createSlice({
         (note) => note !== action.payload
       ); //supprimer la note cliquée du tableau des notes actives
     },
+    crossOrRoundAction: (state, action) => {
+      state.crossOrRound = state.crossOrRound.map((value, index) =>
+        index === action.payload ? (value + 1) % 3 : value
+      );
+      console.log("crossOrRound", state.crossOrRound);
+    },
   },
 });
 
-export const { pressAction, unPressAction } = notesSlice.actions;
+export const { pressAction, unPressAction, crossOrRoundAction } =
+  notesSlice.actions;
 export default notesSlice;
