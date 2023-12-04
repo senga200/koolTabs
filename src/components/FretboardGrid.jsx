@@ -9,9 +9,10 @@ import {
   pressAction,
   unPressAction,
   crossOrRoundAction,
-} from "../actions/PressAction";
+} from "../actions/CardAction";
 
 function FretBoard({ id }) {
+  console.log("id de fretboard", id);
   const dispatch = useDispatch();
   const [activeNotes, setActiveNotes] = useState([]);
   //débuter avec un tableau de 6 éléments à 0 (vide = 0, croix = 1, rond = 2)
@@ -20,11 +21,10 @@ function FretBoard({ id }) {
   const handleNotePress = (note) => {
     if (activeNotes.includes(note)) {
       setActiveNotes(activeNotes.filter((n) => n !== note));
-      dispatch(unPressAction(note));
-      dispatch(unPressAction(note));
+      dispatch(unPressAction({ cardKey: id, note: note }));
     } else {
       setActiveNotes([...activeNotes, note]);
-      dispatch(pressAction(note));
+      dispatch(pressAction({ cardKey: id, note: note }));
     }
   };
 
@@ -35,21 +35,21 @@ function FretBoard({ id }) {
         newState[index] = 1;
         return newState;
       });
-      dispatch(crossOrRoundAction(index, 1));
+      dispatch(crossOrRoundAction({ cardKey: id, index, value: 1 }));
     } else if (crossOrRound[index] === 1) {
       setCrossOrRound((prev) => {
         const newState = [...prev];
         newState[index] = 2;
         return newState;
       });
-      dispatch(crossOrRoundAction(index, 2));
+      dispatch(crossOrRoundAction({ cardKey: id, index, value: 2 }));
     } else {
       setCrossOrRound((prev) => {
         const newState = [...prev];
         newState[index] = 0;
         return newState;
       });
-      dispatch(crossOrRoundAction(index, 0));
+      dispatch(crossOrRoundAction({ cardKey: id, index, value: 0 }));
     }
   };
 

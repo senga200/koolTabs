@@ -38,8 +38,8 @@ function Home() {
       </div>
       <div className="home_container">
         <div className="tab-container">
-          {fretBoardComponents.map((component, index) => (
-            <FretBoardGrid key={component.key} id={component.key} />
+          {fretBoardComponents.map((fretBoard) => (
+            <FretBoardGrid key={fretBoard.key} id={fretBoard.key} />
           ))}
         </div>
       </div>

@@ -10,9 +10,10 @@ function Delete({ id }) {
   const deleteComponent = (e) => {
     e.preventDefault();
     if (!id) {
-      console.log("error");
+      console.log("error regarde", id);
       return;
     }
+    console.log("Card ID to delete: ", id);
     dispatch(deleteCardAction(id));
     console.log("deleted !!");
   };
