@@ -1,5 +1,5 @@
 import React from "react";
-import "./FretBoard.css";
+import "./fretBoard.css";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,7 +15,7 @@ function FretBoard({ id }) {
   console.log("id de fretboard", id);
   const dispatch = useDispatch();
   const [activeNotes, setActiveNotes] = useState([]);
-  //débuter avec un tableau de 6 éléments à 0 (vide = 0, croix = 1, rond = 2)
+  //tableau x 6 à 0 (vide = 0, croix = 1, rond = 2)
   const [crossOrRound, setCrossOrRound] = useState(Array(6).fill(0));
 
   const handleNotePress = (note) => {

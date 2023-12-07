@@ -36,7 +36,7 @@ const cardSlice = createSlice({
       const cardIndex = state.fretBoard.findIndex(
         (card) => card.key === cardKey
       );
-
+      // si cardIndex est différent de -1, alors on ajoute la note à la carte(car si cardIndex est égal à -1, alors la carte n'existe pas)
       if (cardIndex !== -1) {
         state.fretBoard[cardIndex].activeNotes.push(note);
       }
@@ -51,6 +51,7 @@ const cardSlice = createSlice({
       if (cardIndex !== -1) {
         state.fretBoard[cardIndex].activeNotes = state.fretBoard[
           cardIndex
+          // si la note est différente de la note à supprimer, alors on la garde
         ].activeNotes.filter((n) => n !== note);
       }
     },
@@ -65,7 +66,8 @@ const cardSlice = createSlice({
         state.fretBoard[cardIndex].crossOrRound = state.fretBoard[
           cardIndex
         ].crossOrRound.map((value, i) =>
-          i === index ? (value + 1) % 3 : value
+          // verifie si la valeur est sup. à 2, si oui, on la remet à 0, sinon on l'incrémente de 1
+          i === index ? (value < 2 ? value + 1 : 0) : value
         );
       }
     },
