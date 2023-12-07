@@ -1,10 +1,13 @@
 import React from "react";
-import "./Home.css";
+import "../pages/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { createCardAction, incrementCounterAction } from "./actions/CardAction";
-import FretBoardGrid from "./components/FretboardGrid";
+import {
+  createCardAction,
+  incrementCounterAction,
+} from "../actions/CardAction";
+import FretBoardGrid from "../components/FretboardGrid";
 import { useSelector } from "react-redux";
 
 function Home() {
