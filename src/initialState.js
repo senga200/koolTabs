@@ -1,11 +1,11 @@
 const initialState = {
   card: {
     fretBoard: [
-      {
-        key: 0,
-        activeNotes: [],
-        crossOrRound: [0, 0, 0, 0, 0, 0],
-      },
+      // {
+      //   key: 0,
+      //   activeNotes: [],
+      //   crossOrRound: [0, 0, 0, 0, 0, 0],
+      // },
     ],
     counter: 0,
   },

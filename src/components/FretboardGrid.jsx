@@ -73,6 +73,7 @@ function FretBoard({ id }) {
             placeholder="nom de l'accord"
           />
         </div>
+        <div className="IdCard">{id}</div>
         <div className="numeroCase">
           <label htmlFor={`case-select-${id}`}>Case :</label>
           <select id={`case-select-${id}`} className="case-select">
